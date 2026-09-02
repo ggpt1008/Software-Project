@@ -1,0 +1,17 @@
+{
+  "name": "dillibus-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start:db": "docker-compose up -d",
+    "stop:db": "docker-compose down",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:solver": "cd solver && python3 main.py",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\" \"npm run dev:solver\"",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install && cd ../solver && pip install -r requirements.txt"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
