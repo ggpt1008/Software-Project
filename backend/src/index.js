@@ -1,20 +1,15 @@
 import express from 'express';
-import type { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-
 dotenv.config();
-
 const app = express();
 const PORT = process.env.PORT || 3001;
-
 app.use(cors());
 app.use(express.json());
-
-app.get('/health', (req: Request, res: Response) => {
-  res.json({ status: 'ok', service: 'backend' });
+app.get('/health', (req, res) => {
+    res.json({ status: 'ok', service: 'backend' });
 });
-
 app.listen(PORT, () => {
-  console.log(`Backend service running on http://localhost:${PORT}`);
+    console.log(`Backend service running on http://localhost:${PORT}`);
 });
+//# sourceMappingURL=index.js.map
